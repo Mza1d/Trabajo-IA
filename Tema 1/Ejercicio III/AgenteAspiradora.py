@@ -1,5 +1,7 @@
 #Univ.: Anarata Diaz Mario
 
+#AGENTE BASADO EN OBJETIVOS
+
 #IMPORTAMOS LIBRERIAS
 import random as rd # para Aleatorio
 import matplotlib.pyplot as plt #Para graficar
@@ -18,7 +20,7 @@ def main():
         percepcion = [posicion,estado] #percepcion que contiene posicion + estado
         mostrar(matriz,percepcion[0]) #muestra el entorno
         while(accion != 6): #hasta que se alcance la meta
-            accion = agenteObjetivo(matriz,percepcion,checkObj(matriz)) #guarda la acción que debe realizar el Aspirador o limpiador
+            accion = agenteObjetivo(matriz,percepcion,comprobarObjetivo(matriz)) #guarda la acción que debe realizar el Aspirador o limpiador
             if(accion != 6): # si no fuera por que la aspiradora se detuviera
                 puntos +=1 #contar puntos
                 percepcion = ejecutarAccion(matriz,percepcion,accion) #ejecución
@@ -100,7 +102,7 @@ def agenteObjetivo(matriz,percepcion,objObtenido):
         print('Estado: '+str(estado)+' accion: izquierda')
         return 'izquierda'
     
-def checkObj(matriz):
+def comprobarObjetivo(matriz):
     for s in matriz:
         for n in s:
             if(n == 2):
@@ -197,4 +199,5 @@ def agenteReativoSimples(matriz,mapa,percepcion): # devuelve la acción que debe
                 elif a[2] == 4:
                     print('Estado: '+str(estado)+' accion: derecha')
                     return 'derecha'
+        exit()
 main()
