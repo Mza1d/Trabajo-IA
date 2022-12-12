@@ -199,5 +199,5 @@ def agenteReativoSimples(matriz,mapa,percepcion): # devuelve la acción que debe
                 elif a[2] == 4:
                     print('Estado: '+str(estado)+' accion: derecha')
                     return 'derecha'
-        exit()
+
 main()
