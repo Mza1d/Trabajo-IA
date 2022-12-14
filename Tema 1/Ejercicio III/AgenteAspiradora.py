@@ -1,6 +1,6 @@
 #Univ.: Anarata Diaz Mario
 
-#AGENTE BASADO EN OBJETIVOS
+#AGENTES QUE PLANIFICAN - AGENTE BASADO EN OBJETIVOS
 
 #IMPORTAMOS LIBRERIAS
 import random as rd # para Aleatorio
@@ -46,7 +46,13 @@ def mostrar(I, posicion):
     plt.pause(0.25)    
     #plt.clf()
     
-def definirAmbiente(): # Define el entorno, donde 1 = pared, 0 = limpio, 2 = sucio (donde las posiciones de suciedad son aleatorias)
+'''
+Define el entorno
+1 = pared
+0 = limpio
+2 = sucio -> donde las posiciones de suciedad son aleatorias
+'''
+def definirAmbiente():
     matriz = [[1,1,1,1,1,1],
               [1,rd.choice([0,2]),rd.choice([0,2]),rd.choice([0,2]),rd.choice([0,2]),1],
               [1,rd.choice([0,2]),rd.choice([0,2]),rd.choice([0,2]),rd.choice([0,2]),1],
@@ -55,7 +61,7 @@ def definirAmbiente(): # Define el entorno, donde 1 = pared, 0 = limpio, 2 = suc
               [1,1,1,1,1,1]]
     return matriz
 
-def funcionMapa(): # funcion Mapear
+def funcionMapa(): # funcion Mapa
     funcionMapa = [[1,1,4],
                     [2,1,4],
                     [3,1,4],
@@ -199,5 +205,4 @@ def agenteReativoSimples(matriz,mapa,percepcion): # devuelve la acción que debe
                 elif a[2] == 4:
                     print('Estado: '+str(estado)+' accion: derecha')
                     return 'derecha'
-
 main()
